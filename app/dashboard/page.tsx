@@ -25,10 +25,10 @@ const FormPage = () => {
   };
   
   return (
-    <div className='h-full grid gap-2 sm:grid-cols-2 lg:grid-cols-2 bg-gray-50 border border-rounded'>
+    <div className='h-full grid gap-2 sm:grid-cols-2 lg:grid-cols-2 bg-gray-50 border border-rounded justify-center'>
       <form className='flex flex-col items-center' onSubmit={handleSubmit}>
         <h1>Ingrese sus gastos</h1>
-        <div>
+        <div className='m-2'>
           <div className='flex place-content-center'>
             <h3 className='text-sm font-medium'>Nombre</h3>
           </div>
@@ -44,13 +44,13 @@ const FormPage = () => {
           <button className='w-full bg-violet-400' type="submit">Submit</button>
         </div>
       </form>
-      <div>
-      <table className="table table-dark table-striped">
+      <div className='m-10'>
+      <table className="table table-dark table-striped w-full m-2">
           <thead>
             <tr className='bg-gray-200'>
               <th className='border border-gray-400 px-4 py-2 text-gray-800'>#</th>
-              <th className='border border-gray-400 px-4 py-2 text-gray-800'>Nombre</th>
-              <th className='border border-gray-400 px-4 py-2 text-gray-800'>Gasto</th>
+              <th className='border border-gray-400 px-4 py-2 text-gray-800'>descripción</th>
+              <th className='border border-gray-400 px-4 py-2 text-gray-800'>cantidad</th>
             </tr>
           </thead>
           <tbody>
