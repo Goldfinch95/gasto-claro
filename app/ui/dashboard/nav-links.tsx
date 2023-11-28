@@ -1,41 +1,38 @@
 'use client'
 
-import {
-  UserGroupIcon,
-  HomeIcon,
-  DocumentDuplicateIcon,
-} from '@heroicons/react/24/outline';
+import React from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import Image from 'next/image';
 
-// Map of links to display in the side navigation.
-// Depending on the size of the application, this would be stored in a database.
 const links = [
-  { name: 'Home', href: '/dashboard', icon: HomeIcon },
   {
-    name: 'Invoices',
-    href: '/dashboard/invoices',
-    icon: DocumentDuplicateIcon,
+    name: 'Gastos',
+    href: '/dashboard',
+    icon: '/icons/gastos.ico',
   },
-  { name: 'Customers', href: '/dashboard/customers', icon: UserGroupIcon },
+  { name: 'Home', href: '/dashboard/invoices', icon: '/icons/home.ico' },
 ];
 
 export default function NavLinks() {
-  const pathname = usePathname()
+  const pathname = usePathname();
   return (
     <>
       {links.map((link) => {
-        const LinkIcon = link.icon;
         return (
           <Link
             key={link.name}
             href={link.href}
-            className={`flex h-[48px] grow items-center justify-center gap-2 rounded-md bg-gray-50 p-3 text-sm font-medium md:flex-none md:justify-start md:p-2 md:px-3
-            
-            ${pathname === link.href ? ' text-violet-600' : ''}
-            `}
+            className={`flex h-[48px] grow items-center justify-center gap-2 rounded-md bg-gray-50 p-3 text-gray-400 font-bold hover:text-violet-600 md:flex-none md:justify-start md:p-2 md:px-3 ${
+              pathname === link.href ? ` text-violet-600` : ''
+            }`}
           >
-            <LinkIcon className="w-6" />
+            <Image
+              src={link.icon}
+              alt={link.name}
+              width={24}
+              height={24}
+            />
             <p className="hidden md:block">{link.name}</p>
           </Link>
         );

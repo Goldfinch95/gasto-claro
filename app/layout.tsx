@@ -1,5 +1,6 @@
 import '@/app/ui/global.css';
-import { montserrat } from './ui/fonts';
+import { inter } from '@/app/ui/fonts';
+ 
 export default function RootLayout({
   children,
 }: {
@@ -7,11 +8,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${montserrat.className} antialiased`}>{children}
-      <footer className="text-center leading-[3rem] opacity-70">
-      © {new Date().getFullYear()} Goldfinch
-      </footer>
-      </body>
+      <body className={`${inter.className} antialiased`}>{children}</body>
     </html>
   );
 }
